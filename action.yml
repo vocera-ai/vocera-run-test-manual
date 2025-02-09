@@ -1,0 +1,37 @@
+name: "Vocera Run Test Manual"
+description: "Run scenarios against Vocera agents"
+author: "Vocera AI"
+
+inputs:
+  agent_id:
+    description: "Agent ID"
+    required: true
+  scenarios:
+    description: "Comma-separated list of scenario IDs"
+    required: true
+  frequency:
+    description: "Number of times to run each scenario"
+    required: false
+    default: "1"
+  timeout:
+    description: "Timeout in seconds"
+    required: false
+    default: "3600"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Scenarios
+      uses: vocera-ai/vocera-run-test-manual/.github/workflows/run-scenarios.yml@main
+      with:
+        agent_id: ${{ inputs.agent_id }}
+        scenarios: ${{ inputs.scenarios }}
+        frequency: ${{ inputs.frequency }}
+        timeout: ${{ inputs.timeout }}
+      secrets:
+        API_BASE_URL: ${{ secrets.API_BASE_URL }}
+        API_KEY: ${{ secrets.API_KEY }}
+
+branding:
+  icon: "play-circle"
+  color: "blue"
