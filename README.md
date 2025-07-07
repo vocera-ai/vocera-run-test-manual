@@ -42,7 +42,6 @@ jobs:
           scenarios: ${{ github.event.inputs.scenarios }}
           frequency: ${{ github.event.inputs.frequency }}
           timeout: ${{ github.event.inputs.timeout }}
-        secrets:
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_KEY: ${{ secrets.API_KEY }}
 ```
