@@ -28,7 +28,6 @@ runs:
         scenarios: ${{ inputs.scenarios }}
         frequency: ${{ inputs.frequency }}
         timeout: ${{ inputs.timeout }}
-      secrets:
         API_BASE_URL: ${{ secrets.API_BASE_URL }}
         API_KEY: ${{ secrets.API_KEY }}
 
